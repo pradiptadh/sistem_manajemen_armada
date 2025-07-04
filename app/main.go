@@ -1,22 +1,29 @@
 package main
 
 import (
-	"fmt"
-	"os"
+	"sistem_manajemen_armada/db"
+	"sistem_manajemen_armada/handler"
+	"sistem_manajemen_armada/mqtt"
+	"sistem_manajemen_armada/repository"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	db := InitDB()
-	defer db.Close()
+	db.Init()
 
-	mqttHost := os.Getenv("MQTT_BROKER")
-	mqttPort := os.Getenv("MQTT_PORT")
-	if mqttPort == "" {
-		mqttPort = "1883"
-	}
+	repo := repository.NewPostgresRepo()
+	h := handler.NewVehicleHandler(repo)
 
-	mqttURL := fmt.Sprintf("tcp://%s:%s", mqttHost, mqttPort)
-	fmt.Println("🔌 Connecting to MQTT broker at", mqttURL)
+	// Jalankan MQTT subscriber di goroutine
+	go func() {
+		sub := mqtt.NewSubscriber(repo)
+		sub.Start("tcp://mosquitto:1883")
+	}()
 
-	ListenAndStoreLocation(mqttURL, db)
+	r := gin.Default()
+	r.GET("/vehicles/:vehicle_id/location", h.GetLastLocation)
+	r.GET("/vehicles/:vehicle_id/history", h.GetHistory)
+
+	r.Run(":8080")
 }
