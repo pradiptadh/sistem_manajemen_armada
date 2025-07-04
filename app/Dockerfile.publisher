@@ -1,0 +1,17 @@
+FROM golang:1.23-alpine
+
+WORKDIR /app/publisher
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+
+# ✅ Build binary publisher dengan path absolut agar tidak ambigu
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o /app/publisher_bin ./publisher/mock_publisher.go
+
+# ✅ Cek file hasil build
+RUN ls -lah /app && chmod +x /app/publisher_bin
+
+# ✅ Jalankan
+CMD ["/app/publisher_bin"]

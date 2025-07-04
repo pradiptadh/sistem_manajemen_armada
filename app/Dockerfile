@@ -1,11 +1,12 @@
-FROM golang:1.21-alpine
+FROM golang:1.23-alpine
 
 WORKDIR /app
 
+COPY go.mod go.sum ./
+RUN go mod download
+
 COPY . .
 
-RUN apk add --no-cache git
-RUN go mod init pradipta-app && go mod tidy
-RUN go build -o main .
+RUN  go mod tidy && GOOS=linux GOARCH=amd64 go build -v -o main . && chmod +x main
 
 CMD ["./main"]

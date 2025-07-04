@@ -1,11 +1,14 @@
 version: '3.8'
 
 services:
-  golang-app:
+  sistem_manajemen_armada:
+    platform: amd64
     build:
       context: ./app
       dockerfile: Dockerfile
-    container_name: golang-app
+    container_name: sistem_manajemen_armada
+    ports:
+      - "8080:8080"
     depends_on:
       - postgres
       - rabbitmq
@@ -24,7 +27,8 @@ services:
       - pradipta-network
 
   postgres:
-    image: postgres:15
+    image: postgres:15.1
+    platform: linux/amd64
     container_name: postgres
     restart: always
     environment:
@@ -32,13 +36,14 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: app_db
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5434:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
       - pradipta-network
 
   rabbitmq:
+    platform: linux/amd64
     image: rabbitmq:3-management
     container_name: rabbitmq
     ports:
@@ -51,6 +56,7 @@ services:
       - pradipta-network
 
   mosquitto:
+    platform: linux/amd64
     image: eclipse-mosquitto:2.0
     container_name: mosquitto
     ports:
@@ -60,6 +66,16 @@ services:
       - ./mosquitto/config:/mosquitto/config
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
+    networks:
+      - pradipta-network
+
+  publisher:
+    platform: linux/amd64
+    build:
+      context: ./app
+      dockerfile: Dockerfile.publisher
+    depends_on:
+      - mosquitto
     networks:
       - pradipta-network
 
