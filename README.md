@@ -6,7 +6,8 @@ Aplikasi ini merupakan sistem backend manajemen armada menggunakan Golang, GORM,
 - Menyimpan lokasi ke PostgreSQL.
 - Memeriksa geofence dan mengirim event ke RabbitMQ.
 - Menyediakan API untuk mengecek lokasi terakhir dan histori kendaraan.
-- Worker service yang membaca event geofence dari RabbitMQ.
+- Worker service yang membaca event geofence dari RabbitMQ (**NOTE** untuk sekarang belum sempurna soon saya sempurnain soalny projectnya fun dan bisa kepake kemana aja
+   untuk feature ini bisa ke branch feature/geoforce not on main branch or dev branch).
 
 ---
 
