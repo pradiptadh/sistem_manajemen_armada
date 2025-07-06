@@ -27,7 +27,7 @@ func ListenAndStoreLocation(broker string, db *sql.DB) {
 			topic := m.Topic()
 			parts := strings.Split(topic, "/")
 			if len(parts) != 5 || parts[1] != "fleet" || parts[2] != "vehicle" {
-				log.Println("⚠️ Topik tidak sesuai format:", topic)
+				log.Println("Topik tidak sesuai format:", topic)
 				return
 			}
 

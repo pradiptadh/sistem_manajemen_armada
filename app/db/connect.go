@@ -42,7 +42,7 @@ func Init() {
 		log.Fatalf("Gagal konek DB setelah 10 percobaan: %v", err)
 	}
 
-	// 🔧 Auto migrate model
+	// Auto migrate model
 	if err := DB.AutoMigrate(&model.VehicleLocation{}); err != nil {
 		log.Fatalf("Gagal migrate schema: %v", err)
 	}

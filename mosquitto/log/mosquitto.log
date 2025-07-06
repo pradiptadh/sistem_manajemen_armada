@@ -533,3 +533,16 @@
 1751649070: Client vehicle-subscriber closed its connection.
 1751649070: mosquitto version 2.0.21 terminating
 1751649070: Saving in-memory database to /mosquitto/data/mosquitto.db.
+1751727902: mosquitto version 2.0.21 starting
+1751727902: Config loaded from /mosquitto/config/mosquitto.conf.
+1751727902: Opening ipv4 listen socket on port 1883.
+1751727902: Opening ipv6 listen socket on port 1883.
+1751727902: mosquitto version 2.0.21 running
+1751727902: New connection from 192.168.176.6:41236 on port 1883.
+1751727902: New client connected from 192.168.176.6:41236 as publisher (p2, c1, k30).
+1751727908: New connection from 192.168.176.5:45770 on port 1883.
+1751727908: New client connected from 192.168.176.5:45770 as vehicle-subscriber (p2, c1, k30).
+1751728116: Client publisher closed its connection.
+1751728116: Client vehicle-subscriber closed its connection.
+1751728116: mosquitto version 2.0.21 terminating
+1751728116: Saving in-memory database to /mosquitto/data/mosquitto.db.

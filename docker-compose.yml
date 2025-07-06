@@ -23,6 +23,8 @@ services:
       - MQTT_PORT=1883
       - RABBITMQ_HOST=rabbitmq
       - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASS=guest
     networks:
       - pradipta-network
 
@@ -76,6 +78,27 @@ services:
       dockerfile: Dockerfile.publisher
     depends_on:
       - mosquitto
+    networks:
+      - pradipta-network
+
+  geofence_worker:
+    platform: linux/amd64
+    build:
+      context: ./app
+      dockerfile: worker/Dockerfile.worker
+    depends_on:
+      - rabbitmq
+      - postgres
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASS=guest
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=app_db
     networks:
       - pradipta-network
 
