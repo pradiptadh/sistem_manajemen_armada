@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  sistem_manajemen_armada:
+    platform: amd64
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: sistem_manajemen_armada
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - rabbitmq
+      - mosquitto
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=app_db
+      - MQTT_BROKER=mosquitto
+      - MQTT_PORT=1883
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+    networks:
+      - pradipta-network
+
+  postgres:
+    image: postgres:15.1
+    platform: linux/amd64
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: app_db
+    ports:
+      - "127.0.0.1:5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - pradipta-network
+
+  rabbitmq:
+    platform: linux/amd64
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"       # RabbitMQ broker port
+      - "15672:15672"     # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - pradipta-network
+
+  mosquitto:
+    platform: linux/amd64
+    image: eclipse-mosquitto:2.0
+    container_name: mosquitto
+    ports:
+      - "1883:1883"       # MQTT port
+      - "9001:9001"       # WebSocket port
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    networks:
+      - pradipta-network
+
+  publisher:
+    platform: linux/amd64
+    build:
+      context: ./app
+      dockerfile: Dockerfile.publisher
+    depends_on:
+      - mosquitto
+    networks:
+      - pradipta-network
+
+volumes:
+  pgdata:
+
+networks:
+  pradipta-network:
