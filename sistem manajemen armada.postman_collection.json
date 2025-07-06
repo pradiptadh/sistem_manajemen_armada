@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "d105468c-f3cd-4423-9bad-dfc789a0b3f0",
+		"name": "sistem manajemen armada",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22357224",
+		"_collection_link": "https://winter-desert-998823.postman.co/workspace/My-Workspace~bf25797e-3ff9-40b2-8676-ab80fbba72de/collection/22357224-d105468c-f3cd-4423-9bad-dfc789a0b3f0?action=share&source=collection_link&creator=22357224"
+	},
+	"item": [
+		{
+			"name": "Get Last Location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/B1234XYZ/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"B1234XYZ",
+						"location"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Last Location Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/vehicles/B1234XYZ/location",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles",
+								"B1234XYZ",
+								"location"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Jul 2025 15:06:19 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "88"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"vehicle_id\": \"B1234XYZ\",\n    \"latitude\": -6.2088,\n    \"longitude\": 106.8456,\n    \"timestamp\": 1751727978\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Vehicle History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/B1234XYZ/history?start=1751727910&end=1751728035",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"B1234XYZ",
+						"history"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1751727910"
+						},
+						{
+							"key": "end",
+							"value": "1751728035"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Vehicle History Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/vehicles/B1234XYZ/history?start=1751727910&end=1751728035",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles",
+								"B1234XYZ",
+								"history"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "1751727910"
+								},
+								{
+									"key": "end",
+									"value": "1751728035"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Jul 2025 15:08:22 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727910\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727912\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727914\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727916\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727918\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727920\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727922\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727924\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727926\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727928\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727930\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727932\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727934\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727936\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727938\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727940\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727942\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727944\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727946\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727948\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727950\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727952\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727954\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727956\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727958\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727960\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727962\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727964\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727966\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727968\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727970\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727972\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727974\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727976\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727978\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727980\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727982\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727984\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727986\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727988\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727990\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727992\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727994\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727996\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751727998\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728000\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728002\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728004\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728006\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728008\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728010\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728012\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728014\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728016\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728019\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728021\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728023\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728025\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728027\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728029\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728031\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728033\n    },\n    {\n        \"vehicle_id\": \"B1234XYZ\",\n        \"latitude\": -6.2088,\n        \"longitude\": 106.8456,\n        \"timestamp\": 1751728035\n    }\n]"
+				}
+			]
+		}
+	]
+}
