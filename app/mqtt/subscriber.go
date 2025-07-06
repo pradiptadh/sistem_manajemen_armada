@@ -31,18 +31,18 @@ func (s *Subscriber) Start(broker string) {
 		log.Fatalf("MQTT subscribe error: %v", token.Error())
 	}
 
-	log.Println("✅ MQTT subscriber listening on:", topic)
+	log.Println("MQTT subscriber listening on:", topic)
 }
 
 func (s *Subscriber) messageHandler(client mqtt.Client, msg mqtt.Message) {
-	log.Println("📥 MQTT Message Received:", string(msg.Payload()))
+	log.Println("MQTT Message Received:", string(msg.Payload()))
 
 	// Extract vehicle_id from topic
 	topic := msg.Topic()
 	re := regexp.MustCompile(`/fleet/vehicle/(.+)/location`)
 	match := re.FindStringSubmatch(topic)
 	if len(match) < 2 {
-		log.Println("⚠️ Invalid topic format:", topic)
+		log.Println("Invalid topic format:", topic)
 		return
 	}
 	vehicleID := match[1]
